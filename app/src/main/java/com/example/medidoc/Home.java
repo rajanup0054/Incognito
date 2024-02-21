@@ -1,19 +1,17 @@
 package com.example.medidoc;
-import android.widget.Toast;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
+import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Home extends AppCompatActivity {
 
-    private EditText editTextUsername;
-    private EditText editTextPassword;
     private Button buttonLogin;
+    private TextView textViewPatientLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +19,9 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         // Find views by their IDs
-        editTextUsername = findViewById(R.id.editTextUsername);
-        editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
-        TextView textViewPatientLogin = findViewById(R.id.textViewPatientLogin);
+        textViewPatientLogin = findViewById(R.id.textViewPatientLogin);
+
         // Specialist registration TextView click listener
         TextView textViewSpecialistRegister = findViewById(R.id.textViewSpecialistRegister);
         textViewSpecialistRegister.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +32,8 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Set onClickListener for the Patient Login TextView
         textViewPatientLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,21 +47,12 @@ public class Home extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Check the credentials (example: username: "admin", password: "password")
+                // Navigate to FeaturesActivity
+                EditText editTextUsername = findViewById(R.id.editTextUsername);
                 String username = editTextUsername.getText().toString();
-                String password = editTextPassword.getText().toString();
-
-                if (username.equals("admin") && password.equals("password")) {
-                    // If the credentials are correct, navigate to the next activity or perform other actions
-                    // For now, let's go to a placeholder activity (MainActivity)
-                    Intent intent = new Intent(Home.this, MainActivity.class);
-                    startActivity(intent);
-                    finish(); // Close the login activity
-                } else {
-                    // If credentials are incorrect, you may display an error message or take other actions
-                    // For now, just display a Toast message
-                    Toast.makeText(Home.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(Home.this, FeaturesActivity.class);
+                intent.putExtra("username", username); // Pass the username to FeaturesActivity
+                startActivity(intent);
             }
         });
     }

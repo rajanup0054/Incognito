@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".FeaturesActivity">
+
+    <!-- Add UI elements for displaying basic features -->
+    <TextView
+        android:id="@+id/textViewWelcomeFeatures"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="120dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+    <!-- Buttons -->
+    <Button
+        android:id="@+id/buttonUploadFeatures"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="#43A190"
+        android:layout_marginTop="150dp"
+    android:text="Upload Documents"
+    android:textColor="#212121" />
+
+    <Button
+        android:id="@+id/buttonDownloadFeatures"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonUploadFeatures"
+        android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="#43A190"
+    android:text="Download Documents"
+    android:textColor="#212121" />
+</RelativeLayout>
